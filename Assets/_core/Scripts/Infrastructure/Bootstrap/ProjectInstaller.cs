@@ -8,6 +8,7 @@ namespace ZooWorld.Installers
         public override void InstallBindings()
         {
             Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
+            Container.Bind<IGameObjectPool>().To<GameObjectPool>().AsSingle();
         }
     }
 }
