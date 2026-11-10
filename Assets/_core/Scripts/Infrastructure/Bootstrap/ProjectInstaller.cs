@@ -9,6 +9,7 @@ namespace ZooWorld.Installers
         {
             Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
             Container.Bind<IGameObjectPool>().To<GameObjectPool>().AsSingle();
+            Container.Bind<IRandomService>().To<UnityRandomService>().AsSingle();
         }
     }
 }

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4829fd92190684db3034cc9b041c48, type: 3}
   m_Name: SnakeConfig
   m_EditorClassIdentifier: ZooWorld.Gameplay::ZooWorld.Animals.AnimalConfig
+  _displayName: Snake
+  _icon: {fileID: 0}
   _prefab: {fileID: 3723378377305128573, guid: 2365de13288ba804a8cf83da8933c389, type: 3}
   _role: {fileID: 11400000, guid: 6ab589dec3fa22443af3a72349fda6c2, type: 2}
   _movement: {fileID: 11400000, guid: 9ed3b9a701f22404ab5ed4bb140c498e, type: 2}

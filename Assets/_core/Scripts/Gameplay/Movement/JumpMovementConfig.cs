@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZooWorld.Infrastructure;
 
 namespace ZooWorld.Movement
 {
@@ -15,9 +16,9 @@ namespace ZooWorld.Movement
         public float JumpDistance => _jumpDistance;
         public float Damping => _damping;
 
-        public override IMovement CreateMovement(Rigidbody body, Navigation navigation)
+        public override IMovement CreateMovement(Rigidbody body, Navigation navigation, IRandomService random)
         {
-            return new JumpMovement(this, body, navigation);
+            return new JumpMovement(this, body, navigation, random);
         }
     }
 }

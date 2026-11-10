@@ -116,4 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZooWorld.UI.UIGameCtrl
   _root: {fileID: 4911000726321850070}
-  _screens: []
+  _screens:
+  - Id: 0
+    Prefab: {fileID: 1439697817272768526, guid: 90a68733f3170e04a976207a092d9b45, type: 3}

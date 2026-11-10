@@ -1,10 +1,11 @@
 using UnityEngine;
+using ZooWorld.Infrastructure;
 
 namespace ZooWorld.Movement
 {
     // Base for movement settings. Each movement kind gets its own config type that creates its strategy.
     public abstract class MovementConfig : ScriptableObject
     {
-        public abstract IMovement CreateMovement(Rigidbody body, Navigation navigation);
+        public abstract IMovement CreateMovement(Rigidbody body, Navigation navigation, IRandomService random);
     }
 }

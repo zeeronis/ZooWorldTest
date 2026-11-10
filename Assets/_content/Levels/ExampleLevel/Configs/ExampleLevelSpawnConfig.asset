@@ -18,4 +18,4 @@ MonoBehaviour:
   - config: {fileID: 11400000, guid: 1924462749c5ba545be2ff6294300336, type: 2}
     maxOnScene: 10
   - config: {fileID: 11400000, guid: 6c8163e2cd402214dad7d03e7e5b00c7, type: 2}
-    maxOnScene: 10
+    maxOnScene: 2

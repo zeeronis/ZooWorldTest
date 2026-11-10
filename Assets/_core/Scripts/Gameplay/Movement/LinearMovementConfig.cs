@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZooWorld.Infrastructure;
 
 namespace ZooWorld.Movement
 {
@@ -9,7 +10,7 @@ namespace ZooWorld.Movement
 
         public float Speed => _speed;
 
-        public override IMovement CreateMovement(Rigidbody body, Navigation navigation)
+        public override IMovement CreateMovement(Rigidbody body, Navigation navigation, IRandomService random)
         {
             return new LinearMovement(this, body, navigation);
         }

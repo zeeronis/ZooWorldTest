@@ -79,8 +79,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4144cf704e64150488cbf43f0255fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ZooWorld.Runtime::ZooWorld.Installers.GameInstaller
-  _levelPrefab: {fileID: 5823531218016286287, guid: 8d1db154eeffbe34894cd897c6271280, type: 3}
   _cameraPrefab: {fileID: 6772783418597095728, guid: 712c76ecc7488094b8501afa65ddeb8b, type: 3}
+  _levelPrefab: {fileID: 5823531218016286287, guid: 8d1db154eeffbe34894cd897c6271280, type: 3}
+  _collisionConfig: {fileID: 11400000, guid: 5dbb798ed152e9c48a27e8b8df310c84, type: 2}
 --- !u!114 &6630785351643921184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,3 +95,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZooWorld.Installers.UIInstaller
   _uiGameCtrlPrefab: {fileID: 3250826408703495926, guid: a7c2e3f7a9bb666438567bc7e6a56b8c, type: 3}
+  _worldPopupsCanvasPrefab: {fileID: 6248303937574943612, guid: 140e2f6e7e061a14c908262f38345765, type: 3}
+  _tastyPopupConfig: {fileID: 11400000, guid: 2c67e95ace7a28646bfbb9efa2a122ce, type: 2}

@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 using ZooWorld.Infrastructure;
+using ZooWorld.Levels;
 
 namespace ZooWorld.Cameras
 {
@@ -17,12 +19,13 @@ namespace ZooWorld.Cameras
 
         public Camera Camera => _camera;
 
-        public void Setup(Vector3 areaCenter, Vector2 areaBounds)
+        [Inject]
+        public void Construct(Level level)
         {
-            _origin = areaCenter;
-            _areaBounds = areaBounds;
-            _ground = new Plane(Vector3.up, areaCenter);
-            transform.position = areaCenter;
+            _origin = level.Center;
+            _areaBounds = level.ArenaSize;
+            _ground = new Plane(Vector3.up, _origin);
+            transform.position = _origin;
         }
 
         public void OnUpdate(float deltaTime)

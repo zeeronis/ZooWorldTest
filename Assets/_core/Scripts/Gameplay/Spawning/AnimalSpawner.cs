@@ -16,16 +16,18 @@ namespace ZooWorld.Spawning
         private readonly List<AnimalConfig> _candidates = new();
         private readonly Level _level;
         private readonly SpawnConfig _config;
-        private readonly AnimalFactory _factory;
-        private readonly AnimalsProcessor _animals;
+        private readonly AnimalLifecycle _lifecycle;
+        private readonly AnimalRegistry _registry;
+        private readonly IRandomService _random;
         private float _timer;
 
-        public AnimalSpawner(LevelBuilder levelBuilder, AnimalFactory factory, AnimalsProcessor animals)
+        public AnimalSpawner(Level level, AnimalLifecycle lifecycle, AnimalRegistry registry, IRandomService random)
         {
-            _level = levelBuilder.Level;
-            _config = _level.SpawnConfig;
-            _factory = factory;
-            _animals = animals;
+            _level = level;
+            _config = level.SpawnConfig;
+            _lifecycle = lifecycle;
+            _registry = registry;
+            _random = random;
             _timer = NextInterval();
         }
 
@@ -45,7 +47,7 @@ namespace ZooWorld.Spawning
             _candidates.Clear();
             foreach (var entry in _config.Animals)
             {
-                if (entry.config != null && _animals.CountOf(entry.config) < entry.maxOnScene)
+                if (entry.config != null && _registry.CountOf(entry.config) < entry.maxOnScene)
                 {
                     _candidates.Add(entry.config);
                 }
@@ -56,19 +58,16 @@ namespace ZooWorld.Spawning
                 return false;
             }
 
-            _factory.Create(_candidates[Random.Range(0, _candidates.Count)], FindSpawnPoint());
+            _lifecycle.Spawn(_candidates[_random.Range(0, _candidates.Count)], FindSpawnPoint());
             return true;
         }
 
         private Vector3 FindSpawnPoint()
         {
-            var center = _level.transform.position;
-            var half = _level.ArenaSize * 0.5f - Vector2.one * EdgePadding;
-            var point = center;
-
+            var point = _level.Center;
             for (var i = 0; i < PointAttempts; i++)
             {
-                point = center + new Vector3(Random.Range(-half.x, half.x), 0f, Random.Range(-half.y, half.y));
+                point = _level.RandomPoint(EdgePadding, _random);
                 if (!Physics.CheckSphere(point + Vector3.up * CheckHeight, FreeRadius, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
                 {
                     break;
@@ -80,7 +79,7 @@ namespace ZooWorld.Spawning
 
         private float NextInterval()
         {
-            return Random.Range(_config.MinInterval, _config.MaxInterval);
+            return _random.Range(_config.MinInterval, _config.MaxInterval);
         }
     }
 }

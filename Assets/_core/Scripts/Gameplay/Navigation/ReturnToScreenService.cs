@@ -1,23 +1,21 @@
 using UnityEngine;
+using ZooWorld.Animals;
 using ZooWorld.Infrastructure;
 using ZooWorld.Levels;
-using ZooWorld.Movement;
 
-namespace ZooWorld.Animals
+namespace ZooWorld.Movement
 {
-    // Animals that leave the visible area are sent back. Knows nothing about how they move.
     public sealed class ReturnToScreenService : IGameFixedUpdatable
     {
-        // Different thresholds for leaving and coming back, so the state does not flicker at the edge.
         private const float LeaveViewportInset = 0.02f;
         private const float LeaveArenaInset = 0.7f;
         private const float BackViewportInset = 0.1f;
         private const float BackArenaInset = 1.5f;
 
-        private readonly AnimalsProcessor _animals;
+        private readonly AnimalRegistry _animals;
         private readonly ScreenBounds _screen;
 
-        public ReturnToScreenService(AnimalsProcessor animals, ScreenBounds screen)
+        public ReturnToScreenService(AnimalRegistry animals, ScreenBounds screen)
         {
             _animals = animals;
             _screen = screen;
@@ -45,7 +43,6 @@ namespace ZooWorld.Animals
                 }
                 else if (Vector3.Dot(navigation.Direction, _screen.Center(BackArenaInset) - position) < 0f)
                 {
-                    // The camera moved while the animal was coming back.
                     SendBack(navigation, position);
                 }
             }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace ZooWorld.Movement
 {
-    // Where the animal wants to go. Movements only read Direction; outside rules may force it.
     public sealed class Navigation
     {
         private Vector3 _wander;
@@ -26,7 +25,6 @@ namespace ZooWorld.Movement
             _forced = direction;
         }
 
-        // Keeps the forced heading, so the animal does not turn straight back.
         public void Release()
         {
             if (_forced.HasValue)
@@ -34,12 +32,6 @@ namespace ZooWorld.Movement
                 _wander = _forced.Value;
                 _forced = null;
             }
-        }
-
-        public static Vector3 RandomDirection()
-        {
-            var angle = Random.Range(0f, 2f * Mathf.PI);
-            return new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle));
         }
     }
 }

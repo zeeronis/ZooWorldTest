@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZooWorld.Infrastructure;
 
 namespace ZooWorld.Movement
 {
@@ -8,15 +9,17 @@ namespace ZooWorld.Movement
         private readonly JumpMovementConfig _config;
         private readonly Rigidbody _body;
         private readonly Navigation _navigation;
+        private readonly IRandomService _random;
         private float _timer;
 
-        public JumpMovement(JumpMovementConfig config, Rigidbody body, Navigation navigation)
+        public JumpMovement(JumpMovementConfig config, Rigidbody body, Navigation navigation, IRandomService random)
         {
             _config = config;
             _body = body;
             _navigation = navigation;
+            _random = random;
             _body.linearDamping = config.Damping;
-            _timer = Random.Range(0f, config.JumpInterval);
+            _timer = random.Range(0f, config.JumpInterval);
         }
 
         public void OnFixedUpdate(float fixedDeltaTime)
@@ -28,7 +31,7 @@ namespace ZooWorld.Movement
             }
 
             _timer += _config.JumpInterval;
-            _navigation.Wander(Navigation.RandomDirection());
+            _navigation.Wander(_random.DirectionXZ());
 
             var damping = _config.Damping;
             var speed = _config.JumpDistance * damping / Mathf.Max(0.01f, 1f - damping * fixedDeltaTime);
