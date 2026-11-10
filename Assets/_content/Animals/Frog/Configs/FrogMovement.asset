@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: ZooWorld.Gameplay::ZooWorld.Movement.JumpMovementConfig
   _jumpInterval: 1
   _jumpDistance: 2
+  _damping: 5

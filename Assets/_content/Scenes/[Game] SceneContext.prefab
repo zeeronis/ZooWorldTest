@@ -79,6 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4144cf704e64150488cbf43f0255fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ZooWorld.Runtime::ZooWorld.Installers.GameInstaller
+  _levelPrefab: {fileID: 5823531218016286287, guid: 8d1db154eeffbe34894cd897c6271280, type: 3}
+  _cameraPrefab: {fileID: 6772783418597095728, guid: 712c76ecc7488094b8501afa65ddeb8b, type: 3}
 --- !u!114 &6630785351643921184
 MonoBehaviour:
   m_ObjectHideFlags: 0

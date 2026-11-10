@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.15, z: -0.15}
-  m_LocalScale: {x: 0.45, y: 0.8500001, z: 0.29999998}
+  m_LocalScale: {x: 0.45, y: 0.52626055, z: 0.29999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7247498176837552164}
@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 8463892451919162717}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 0.3, z: 0.85}
+  m_LocalPosition: {x: -0.13, y: 0.3, z: 0.455}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 8856744371485340453}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13, y: 0.3, z: 0.85}
+  m_LocalPosition: {x: 0.13, y: 0.3, z: 0.455}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 8863805347386470966}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.17, z: 0.72}
+  m_LocalPosition: {x: 0, y: 0.17, z: 0.32500002}
   m_LocalScale: {x: 0.5, y: 0.34, z: 0.56}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -368,6 +368,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1812337427099821219, guid: 0f7aac0b5727c13488a023e7505a993c, type: 3}
+      propertyPath: _collider
+      value: 
+      objectReference: {fileID: 863563826772428799}
     - target: {fileID: 6064184626567524353, guid: 0f7aac0b5727c13488a023e7505a993c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -410,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7658395252615946795, guid: 0f7aac0b5727c13488a023e7505a993c, type: 3}
       propertyPath: m_Name
-      value: Snake Variant
+      value: Snake
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -430,15 +434,15 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7658395252615946795, guid: 0f7aac0b5727c13488a023e7505a993c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8479370606996677819}
+      addedObject: {fileID: 863563826772428799}
   m_SourcePrefab: {fileID: 100100000, guid: 0f7aac0b5727c13488a023e7505a993c, type: 3}
 --- !u!1 &3723378377305128573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7658395252615946795, guid: 0f7aac0b5727c13488a023e7505a993c, type: 3}
   m_PrefabInstance: {fileID: 6477316458288405590}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &8479370606996677819
-CapsuleCollider:
+--- !u!135 &863563826772428799
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -455,11 +459,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.25
-  m_Height: 2
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.18, z: 0}
+  serializedVersion: 3
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &7247498176837552164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4427113412134425714, guid: 0f7aac0b5727c13488a023e7505a993c, type: 3}
