@@ -439,3 +439,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZooWorld.UI.DeathCounterView
   _rowsRoot: {fileID: 760418684700684556}
   _rowPrefab: {fileID: 57863661227305080, guid: 87b29fcc994fe884caca3de7ff793e3f, type: 3}
+  _maxRows: 3
